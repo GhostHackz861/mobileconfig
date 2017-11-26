@@ -33,7 +33,13 @@ service.get('/sign', function(request, response) {
 		},
 		keys: {
 			key: fs.readFileSync('./key.pem'),
-			cert: fs.readFileSync('./cert.pem')
+			cert: fs.readFileSync('./cert.pem'),
+			ca: [
+				fs.readFileSync('./c1.pem'),
+				fs.readFileSync('./c2.pem'),
+				fs.readFileSync('./c3.pem'),
+				fs.readFileSync('./c4.pem')
+			]
 		}
 	};
 	
