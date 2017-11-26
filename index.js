@@ -8,7 +8,7 @@ const service = express();
 service.set('port', (process.env.PORT || 3000));
 
 service.get('/sign', function(request, response) {
-	response.setHeader('Content-Type', 'text/plain');
+	response.setHeader('Content-Type', 'application/x-apple-aspen-config');
 	
 	var options = {
 		emailAddress: 'admin@ghosthackz.ml',
