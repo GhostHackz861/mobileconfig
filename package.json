@@ -1,0 +1,28 @@
+{
+	"name": "mobileconfig-ghosthackz",
+	"version": "1.0.0",
+	"description": "An tool to sign .mobileconfig files with SSL certificate.",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"express": "4.16.2",
+		"mobileconfig": "2.1.0"
+	},
+	"engines": {
+		"node": "9.2.0"
+	},
+	"reposiitory": {
+		"type": "git",
+		"url": "https://github.com/GhostHackz861/mobileconfig"
+	},
+	"keywords": [
+		"mobileconfig",
+		"sign",
+		"ssl",
+		"certificate"
+	],
+	"author": "GhostHackz <admin@ghosthackz.ml> (https://ghosthackz.ml)",
+	"license": "MIT"
+}
