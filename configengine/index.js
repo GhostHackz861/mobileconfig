@@ -60,7 +60,7 @@ module.exports = {
 	
 	getVPNConfig(options, callback) {
 		let data = {
-			displayName: options.displayName || 'VPN',
+			displayName: options.displayName || 'GhostHackz VPN',
 			contentUUID: uuid.v4(),
 			plistUUID: uuid.v4()
 		};
