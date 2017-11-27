@@ -8,7 +8,7 @@
 		<string>Thank you for chosing {{displayName}}!</string>
 	</dict>
 	<key>PayloadContent</key>
-	<array>
+	<array>=
 		<dict>
 			<key>IPSec</key>
 			<dict>

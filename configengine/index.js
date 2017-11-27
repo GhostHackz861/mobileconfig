@@ -6,7 +6,7 @@ const uuid = require('uuid');
 const fs = require('fs');
 
 const templates = {
-		vpn: handlebars.compile(fs.readFileSync(__dirname + '/templates/vpn.plist', 'utf-8'))
+		vpn: handlebars.compile(fs.readFileSync('./vpn.plist', 'utf-8'))
 };
 
 module.exports = {
