@@ -8,7 +8,9 @@
 	},
 	"dependencies": {
 		"express": "4.16.2",
-		"mobileconfig": "2.1.0"
+		"handlebars": "4.0.11",
+		"jsrsasign": "8.0.4",
+		"uuid": "3.1.0"
 	},
 	"engines": {
 		"node": "9.2.0"

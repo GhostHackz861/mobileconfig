@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ConsentText</key>
+	<dict>
+		<key>default</key>
+		<string>Thank you for chosing {{displayName}}!</string>
+	</dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>IPSec</key>
+			<dict>
+				<key>AuthenticationMethod</key>
+				<string>SharedSecret</string>
+				<key>LocalIdentifierType</key>
+				<string>KeyID</string>
+				<key>OnDemandEnabled</key>
+				<integer>1</integer>
+				<key>OnDemandRules</key>
+				<array>
+					<dict>
+						<key>Action</key>
+						<string>EvaluateConnection</string>
+						
+						<key>ActionParameters</key>
+						<array>
+							<dict>
+								<key>Domains</key>
+								<array>
+									<string>ocsp.apple.com</string>
+								</array>
+								<key>DomainAction</key>
+								<string>ConnectIfNeeded</string>
+								<key>RequiredDNSServers</key>
+	                            <array>
+	                            	<string>5.196.72.177</string>
+	                            	<string>67.207.92.151</string>
+	                            	<string>138.68.163.138</string>
+	                            </array>
+							</dict>
+						</array>
+					</dict>
+				</array>
+				<key>SharedSecret</key>
+				<data>
+				ZnJlZWwydHB2cG4uY29t
+				</data>
+			</dict>
+			<key>IPv4</key>
+			<dict>
+				<key>OverridePrimary</key>
+				<integer>1</integer>
+			</dict>
+			<key>PPP</key>
+			<dict>
+				<key>AuthName</key>
+				<string>@AntiRevoke</string>
+				<key>AuthPassword</key>
+				<string>@JosephShenton</string>
+				<key>CommRemoteAddress</key>
+				<string>Anti Revoke Block Revokes</string>
+			</dict>
+			<key>PayloadDescription</key>
+			<string>Configures VPN Settings</string>
+			<key>PayloadDisplayName</key>
+			<string>{{displayName}}</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.vpn.managed.{{contentUUID}}</string>
+			<key>PayloadType</key>
+			<string>com.apple.vpn.managed</string>
+			<key>PayloadUUID</key>
+			<string>{{contentUUID}}</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>Proxies</key>
+			<dict>
+				<key>HTTPEnable</key>
+				<integer>0</integer>
+				<key>HTTPSEnable</key>
+				<integer>0</integer>
+			</dict>
+			<key>UserDefinedName</key>
+			<string>Anti Revoke Block Revokes</string>
+			<key>VPNType</key>
+			<string>L2TP</string>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>Thank you for chosing {{displayName}}</string>
+	<key>PayloadDisplayName</key>
+	<string>{{displayName}}</string>
+	<key>PayloadIdentifier</key>
+	<string>ml.ghosthackz.vpn</string>
+	<key>PayloadOrganization</key>
+	<string>WebParadise Pvt. Ltd.</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>{{plistUUID}}</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+</dict>
+</plist>
