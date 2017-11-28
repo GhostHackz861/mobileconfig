@@ -1,16 +1,22 @@
 'use strict';
 
+const express = require('express');
 const handlebars = require('handlebars');
 const jsrsasign = require('jsrsasign');
 const uuid = require('uuid');
 const fs = require('fs');
+const service = express();
+
+service.set('port', (process.env.PORT || 3000));
 
 const templates = {
-		vpn: handlebars.compile(fs.readFileSync('./templates/vpn.plist', 'utf-8'))
+		vpn: handlebars.compile(fs.readFileSync('./vpn.plist', 'utf-8'))
 };
 
-module.exports = {
-	sign(value, options, callback) {
+service.get('/sign/:displayName', function(request, response) {
+	response.setHeader('Content-Type', 'application/x-apple-aspen-config');
+	
+	function sign(value, options, callback) {
 		options = options || {};
 		
 		let cert = [];
@@ -58,7 +64,7 @@ module.exports = {
 		});
 	},
 	
-	getVPNConfig(options, callback) {
+	function getVPNConfig(options, callback) {
 		let data = {
 			displayName: options.displayName || 'VPN',
 			contentUUID: uuid.v4(),
@@ -73,17 +79,39 @@ module.exports = {
 		return templates.vpn(data);
 	},
 	
-	getSignedConfig(options, callback) {
+	function getSignedConfig(options, callback) {
 		options = options || {};
 		
 		let plistFile;
 		
 		try {
-			plistFile = module.exports.getVPNConfig(options);
+			plistFile = getVPNConfig(options);
 		} catch(E) {
 			return callback(E);
 		}
 		
-		return module.exports.sign(plistFile, options.keys, callback);
+		return sign(plistFile, options.keys, callback);
 	}
-};
+	
+	var options = {
+		displayName: request.params.displayName,
+		keys: {
+			key: fs.readFileSync('./key.pem'),
+			cert: fs.readFileSync('./cert.pem'),
+			ca: [
+				fs.readFileSync('./c1.pem'),
+				fs.readFileSync('./c2.pem'),
+				fs.readFileSync('./c3.pem'),
+				fs.readFileSync('./c4.pem')
+			]
+		}
+	};
+	
+	getSignedConfig(options, function(error, data) {
+		response.send(data);
+	});
+});
+
+service.listen(service.get('port'), function() {
+	console.log('Connected to the server!');
+});
