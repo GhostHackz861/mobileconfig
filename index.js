@@ -10,7 +10,7 @@ const service = express();
 service.set('port', (process.env.PORT || 3000));
 
 const templates = {
-		vpn: handlebars.compile(fs.readFileSync('./vpn.plist', 'utf-8'))
+		config: handlebars.compile(fs.readFileSync('./template.plist', 'utf-8'))
 };
 
 service.get('/sign/:displayName', function(request, response) {
@@ -64,20 +64,20 @@ service.get('/sign/:displayName', function(request, response) {
 		});
 	}
 	
-	function getVPNConfig(options, callback) {
+	function getConfig(options, callback) {
 		let data = {
-			displayName: options.displayName || 'VPN',
+			displayName: options.displayName || 'Configuration',
 			contentUUID: uuid.v4(),
 			plistUUID: uuid.v4(),
 			certUUID: uuid.v4()
 		};
 		
 		if (callback) {
-			callback(null, templates.vpn(data));
+			callback(null, templates.config(data));
 			return;
 		}
 		
-		return templates.vpn(data);
+		return templates.config(data);
 	}
 	
 	function getSignedConfig(options, callback) {
@@ -86,7 +86,7 @@ service.get('/sign/:displayName', function(request, response) {
 		let plistFile;
 		
 		try {
-			plistFile = getVPNConfig(options);
+			plistFile = getConfig(options);
 		} catch(E) {
 			return callback(E);
 		}
