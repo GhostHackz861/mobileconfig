@@ -82,13 +82,13 @@
 				<integer>0</integer>
 			</dict>
 			<key>UserDefinedName</key>
-			<string>Anti Revoke Block Revokes</string>
+			<string>{{displayName}}</string>
 			<key>VPNType</key>
 			<string>L2TP</string>
 		</dict>
 	</array>
 	<key>PayloadDescription</key>
-	<string>Thank you for chosing {{displayName}}</string>
+	<string>Thank you for chosing {{displayName}}!</string>
 	<key>PayloadDisplayName</key>
 	<string>{{displayName}}</string>
 	<key>PayloadIdentifier</key>
