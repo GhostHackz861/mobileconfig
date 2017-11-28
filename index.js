@@ -62,7 +62,7 @@ service.get('/sign/:displayName', function(request, response) {
 		return setImmediate(() => {
 			callback(null, der);
 		});
-	},
+	}
 	
 	function getVPNConfig(options, callback) {
 		let data = {
@@ -77,7 +77,7 @@ service.get('/sign/:displayName', function(request, response) {
 		}
 		
 		return templates.vpn(data);
-	},
+	}
 	
 	function getSignedConfig(options, callback) {
 		options = options || {};
