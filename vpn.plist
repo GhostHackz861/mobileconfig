@@ -10,6 +10,44 @@
 	<key>PayloadContent</key>
 	<array>
 		<dict>
+			<key>PayloadCertificateFileName</key>
+			<string>VPN Certificate</string>
+			<key>PayloadContent</key>
+			<data>
+			MIIC/TCCAeWgAwIBAgIJAJgp9c99bsgaMA0GCSqGSIb3DQEBBQUAMBUxEzARBgNV
+			BAMMCkdob3N0SGFja3owHhcNMTcxMTI2MDYxMjI0WhcNMjcxMTI0MDYxMjI0WjAV
+			MRMwEQYDVQQDDApHaG9zdEhhY2t6MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+			CgKCAQEA0KOWRajUF+wlIMMiFsiv2dueWynTrx59i/9IWQdWS43PNJZjYQjVD1yG
+			bEAeu8Kw6MLXXnsrDzrfHR6SY2p9rVQkj0dYK1S4xDTjJQ4tl9XJM8YqwfTg4p1d
+			y6rHlxqMUIm9+gPyXZ/Ulxd1wkqLw9r+uIEBT3kV4K/yKDNfQfOQI7f8/X4Gkgfk
+			tD7nEmF3zE8zJc1Ru0MMb+aeqBJpmi/xMp9UUkQcPgYEXJtIrISXSRGuZ5h1D0AW
+			PDMTgZVggGwDaQff+wJxQS6nymSjLfHWNcS3b05ToxpAYnZthGE/4QsfuXu7Kc14
+			9QmhDMLp7FE5jUZvcO416L5i5kVvUQIDAQABo1AwTjAdBgNVHQ4EFgQUSgMeF0Pn
+			LPH0QtUFjeCVWdkpt6owHwYDVR0jBBgwFoAUSgMeF0PnLPH0QtUFjeCVWdkpt6ow
+			DAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOCAQEAKD1PCosY82SzJiZ4oG1e
+			HM6Fx4fmPHhBi/6ia2b82MS2cB1/0yVw7ALedf0I0gJIresArAFfB5GBPq2O3u6C
+			HVwNMXm0cnt3z9OCzBQqoVHWdKKjuYNkEIQ5/pAf6S2nv9Bk+UGnf4g+hmFAj/m3
+			U/cZX368G0MznxGV1wyw/tEPTJBcmIY+YFCKFYlyCupa/D6LB9o3t6/n6FsEvGww
+			AG2gi2Z1ku7TnOk8Xi0SRHAaBO/5tqd+GgeSKmvpDoUIx7LonLNdiNpzu6VAt/1J
+			nCL8LUVqTjtUOYz8i9JhcxIh3cE1rgorLDYPsw5cnPFUHBTT04QyTGgFp3YvN8Rk
+			Hw==
+			</data>
+			<key>PayloadDescription</key>
+			<string>Provides VPN authentication (certificate or identity).</string>
+			<key>PayloadDisplayName</key>
+			<string>VPN Certificate</string>
+			<key>PayloadIdentifier</key>
+			<string>ml.ghosthackz.vpncert</string>
+			<key>PayloadOrganization</key>
+			<string>WebParadise Pvt. Ltd.</string>
+			<key>PayloadType</key>
+			<string>com.apple.security.pem</string>
+			<key>PayloadUUID</key>
+			<string>{{certUUID}}</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
 			<key>IPSec</key>
 			<dict>
 				<key>AuthenticationMethod</key>

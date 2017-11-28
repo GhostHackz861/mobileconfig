@@ -68,7 +68,8 @@ service.get('/sign/:displayName', function(request, response) {
 		let data = {
 			displayName: options.displayName || 'VPN',
 			contentUUID: uuid.v4(),
-			plistUUID: uuid.v4()
+			plistUUID: uuid.v4(),
+			certUUID: uuid.v4()
 		};
 		
 		if (callback) {
