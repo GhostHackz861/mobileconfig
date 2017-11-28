@@ -13,13 +13,13 @@ const templates = {
 		vpn: handlebars.compile(fs.readFileSync('./vpn.plist', 'utf-8'))
 };
 
-service.get('/sign', function(request, response) {
+service.get('/sign/:displayName', function(request, response) {
 	response.setHeader('Content-Type', 'application/x-apple-aspen-config');
 	
 	function sign(value, options, callback) {
 		options = options || {};
 		
-		let cert = [];
+		let certs = [];
 		[].concat(options.cert || []).concat(options.ca || []).map(ca => {
 			ca = (ca || '').toString().trim().split('END CERTIFICATE-----');
 			ca.pop();
@@ -94,7 +94,7 @@ service.get('/sign', function(request, response) {
 	}
 	
 	var options = {
-		displayName: 'GhostHackz VPN',
+		displayName: request.params.displayName,
 		keys: {
 			key: fs.readFileSync('./key.pem'),
 			cert: fs.readFileSync('./cert.pem'),
