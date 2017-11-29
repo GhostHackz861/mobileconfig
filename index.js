@@ -12,7 +12,6 @@ const service = express();
 service.set('port', (process.env.PORT || 3000));
 service.set('views', __dirname + '/views');
 service.set('view engine', 'pug');
-service.use(express.favicon());
 service.use(function(request, response, callback) {
 	var data = '';
 	request.setEncoding('utf-8');
