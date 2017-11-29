@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const ua = require('ua-parser');
 const handlebars = require('handlebars');
 const jsrsasign = require('jsrsasign');
@@ -23,7 +24,7 @@ service.use(function(request, response, callback) {
 		callback();
 	});
 });
-service.use(express.cookieParser('awesomekeyfortoomuchfun'));
+service.use(cookieParser('awesomekeyfortoomuchfun'));
 service.use(express.static(path.join(__dirname, 'public')));
 
 const templates = {
