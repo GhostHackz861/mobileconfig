@@ -23,8 +23,6 @@ service.use(function(request, response, callback) {
 		callback();
 	});
 });
-service.use(express.bodyParser());
-service.use(express.methodOverride());
 service.use(express.cookieParser('awesomekeyfortoomuchfun'));
 service.use(express.static(path.join(__dirname, 'public')));
 
