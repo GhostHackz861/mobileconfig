@@ -1,17 +1,75 @@
 'use strict';
 
 const express = require('express');
+const ua = require('ua-parser');
 const handlebars = require('handlebars');
 const jsrsasign = require('jsrsasign');
 const uuid = require('uuid');
 const fs = require('fs');
+const url = require('url');
 const service = express();
 
 service.set('port', (process.env.PORT || 3000));
+service.set('views', __dirname + '/views');
+service.set('view engine', 'pug');
+service.use(express.favicon());
+service.use(function(request, response, callback) {
+	var data = '';
+	request.setEncoding('utf-8');
+	request.on('data', function(chunk) {
+		data += chunk;
+	});
+	request.on('end', function() {
+		request.rawBody = data;
+		callback();
+	});
+});
+service.use(express.bodyParser());
+service.use(express.methodOverride());
+service.use(express.cookieParser('awesomekeyfortoomuchfun'));
+service.use(express.static(path.join(__dirname, 'public')));
 
 const templates = {
 		config: handlebars.compile(fs.readFileSync('./template.plist', 'utf-8'))
 };
+
+service.get('/', function(request, response) {
+	var r = ua.parse(request.headers['user-agent']);
+	
+	if (r.os.family != 'iOS') {
+		response.render('notios', { title: 'Not an iOS Device!' });
+	} else {
+		if (request.cookies.uuid) {
+			response.redirect('/enrollment');
+		} else {
+			response.render('index', { title: 'Get Device UUID'});
+		}
+	}
+});
+
+service.get('/enrollment', function(request, response) {
+	response.setHeader('Content-Type', 'text/html');
+	
+	var url_parts = url.parse(request.url, true);
+	var query = url_parts.query;
+	
+	var tudid = query.udid;
+	if (tudid) {
+		response.cookie('udid', query.udid, { maxAge: 365 * 24 * 60 * 60 * 1000 });
+		response.redirect('/enrollment');
+	} else {
+		if (request.cookies.udid) {
+			response.render('udid', { udid: request.cookies.udid, title: 'UDID' });
+		} else {
+			response.render('/');
+		}
+	}
+});
+
+service.post('/enroll', function(request, response) {
+	var match = request.rawBody.match(/[a-f\d]{40}/);
+	response.redirect(301, '/enrollment?udid=' + match[0]);
+});
 
 service.get('/sign/:displayName', function(request, response) {
 	response.setHeader('Content-Type', 'application/x-apple-aspen-config');

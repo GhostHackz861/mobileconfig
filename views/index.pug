@@ -1,0 +1,8 @@
+extends layout
+
+block content
+	h1= title
+	p To get your UDID, click the button below
+	p #{udid}
+	h1
+		a.gobutton(href='/sign/UDID') Go!
