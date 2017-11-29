@@ -7,6 +7,7 @@ const handlebars = require('handlebars');
 const jsrsasign = require('jsrsasign');
 const uuid = require('uuid');
 const fs = require('fs');
+const path = require('path');
 const url = require('url');
 const service = express();
 
