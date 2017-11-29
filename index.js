@@ -29,7 +29,7 @@ service.use(cookieParser('awesomekeyfortoomuchfun'));
 service.use(express.static(path.join(__dirname, 'public')));
 
 const templates = {
-		config: handlebars.compile(fs.readFileSync('./template.plist', 'utf-8'))
+		config: handlebars.compile(fs.readFileSync('./udid.plist', 'utf-8'))
 };
 
 service.get('/', function(request, response) {

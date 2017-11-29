@@ -1,0 +1,33 @@
+xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <dict>
+        <key>URL</key>
+        <string>https://config-engine.herokuapp.com/enroll</string>
+    <key>DeviceAttributes</key>
+    <array>
+        <string>UDID</string>
+        <string>VERSION</string>
+        <string>PRODUCT</string>
+        <string>IMEI</string>
+        <string>ICCID</string>
+    </array>
+</dict>
+<key>PayloadOrganization</key>
+<string>WebParadise Pvt. Ltd.</string>
+<key>PayloadDisplayName</key>
+<string>{{displayName}}</string>
+<key>PayloadVersion</key>
+<integer>1</integer>
+<key>PayloadUUID</key>
+<string>{{plistUUID}}</string>
+<key>PayloadIdentifier</key>
+<string>ml.github.configuuid</string>
+<key>PayloadDescription</key>
+<string>Knowing the UDID of my iOS device</string>
+<key>PayloadType</key>
+<string>Profile Service</string>
+</dict>
+</plist>
